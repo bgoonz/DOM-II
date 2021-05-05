@@ -1,58 +1,104 @@
-let nav = document.querySelectorAll( '.nav a' );
-nav.forEach( item => {
-  item.addEventListener( 'mouseenter', function ( event ) {
-    event.target.style.color = 'purple';
-  } )
-  item.addEventListener( 'mouseleave', function ( event ) {
-    event.target.style.color = null;
-  } )
-} );
+// Your code goes here
 
-let image = document.querySelectorAll( "img" );
-image.forEach( ( item ) => {
-  item.addEventListener( 'dblclick', function ( event ) {
-    event.target.setAttribute( 'src', 'https://i.pinimg.com/originals/63/8b/da/638bda237d691d6f6f26f0599fbfd607.jpg' )
-    item.preventDefault();
-  } )
-} );
+const stopNav = document.querySelectorAll('.nav-link');
+console.log(stopNav, 'Does Nav Link Work?');
+stopNav.forEach((element) => {
+	element.addEventListener('click', (event) => {
+		console.log("It Doesn't Work!");
+		event.preventDefault();
+	});
+});
+
+//Key Press Updating Background & Nav Color
+const body = document.querySelector('body');
+body.addEventListener('keypress', (event) => {
+	event.target.style.backgroundColor = '#DCDCDC';
+});
+
+// Key Up Changing Backgroun Color
+body.addEventListener('keyup', (event) => {
+	event.target.style.backgroundColor = 'lightBlue';
+});
+
+// Bus Image Swaps Out
+const funBus = document.querySelector('.intro img');
+funBus.addEventListener('mouseover', (event) => {
+	event.target.src = 'img/new-bus.jpg';
+});
+
+funBus.addEventListener('mouseleave', (event) => {
+	event.target.src = 'img/fun-bus.jpg';
+});
+
+// First Adventure Image Rotates
+const adventureImg = document.querySelector('.img-content img');
+adventureImg.addEventListener('mouseenter', (event) => {
+	event.target.style.transform = 'rotate(7deg)';
+});
+
+adventureImg.addEventListener('mouseleave', (event) => {
+	event.target.style.transform = 'rotate(0deg)';
+});
+
+// Animation for Fun Image
+const funImg = document.querySelector('[src="img/fun.jpg"]');
+funImg.addEventListener('mouseenter', (event) => {
+	event.target.style.transform = 'translateX(-10px)';
+});
+
+funImg.addEventListener('mouseleave', (event) => {
+	event.target.style.transform = 'translateX(10px)';
+});
+
+//Mouseover 
+const headerDiv = document.querySelector('.intro');
+headerDiv.addEventListener('mouseover', event => {
+    event.target.style.backgroundColor = 'blue'
+})
+
+// Destination Images Skews
+const destinationImg = document.querySelector('.content-destination img');
+destinationImg.addEventListener('dblclick', (event) => {
+	event.target.style.transform = 'skewX(5deg)';
+	event.target.style.transition = 'all 0.6s';
+});
+
+// All The Buttons Change Color When Clicked
+const button = document.querySelectorAll('.btn');
+
+button.forEach((element) => {
+	element.addEventListener('click', (event) => {
+		event.target.style.backgroundColor = 'green';
+		event.target.style.color = 'floralWhite';
+		event.stopPropagation();
+	});
+});
+
+//  Body Paragraph Editing
+const introText = document.querySelectorAll('body');
+
+introText.forEach((element) => {
+	element.addEventListener('click', (event) => {
+		event.target.style.color = 'green';
+	});
+});
+
+// H2 Styling to change color
+const headlines = document.querySelectorAll('body h2');
+console.log(headlines, 'Selecting headers');
+
+headlines.forEach((element) => {
+	element.addEventListener('click', (event) => {
+		event.target.style.color = 'steelBlue';
+		event.stopPropagation();
+	});
+});
 
 
-let sign = document.querySelectorAll( '.btn' );
-sign.forEach( item => {
-  item.addEventListener( 'click', function ( event ) {
-    prompt( "Whats Your Email?" );
-  } );
-  item.addEventListener( 'auxclick', function ( event ) {
-    alert( "You Don't Have The Permissions Sway!!!" );
-  } );
-
-
-} );
-
-let size = document.getElementById( 'size' );
-window.addEventListener( 'resize', function () {
-  size.innerText = 'Stop Stretching Me!';
-  setTimeout( function () {
-    size.style.display = null;
-  }, 1000 );
-} );
-
-document.addEventListener( 'keypress', function () {
-  alert( "Don't Press my buttons, You wouldn't like me when I'm angry!" );
-} )
-
-let welcome = document.querySelector( '.intro h2' );
-welcome.addEventListener( 'mouseover', function ( event ) {
-  event.target.style.color = 'blue';
-} )
-welcome.addEventListener( 'mouseleave', function ( event ) {
-  event.target.style.color = null;
-} )
-
-let pickDestinationBtn = document.querySelector( '.content-destination h2' );
-pickDestinationBtn.addEventListener( 'mousedown', function ( event ) {
-  event.target.style.color = 'red';
-} )
-pickDestinationBtn.addEventListener( 'mouseup', function ( event ) {
-  event.target.style.color = 'green';
-} )
+//Footer 
+const footerLoad = document.querySelector('.footer p');
+console.log(footerLoad, 'Selecting footer');
+footerLoad.addEventListener('load', (event) => {
+	event.target.innerHTML = 'It has been loaded!';
+	event.stopPropagation();
+});
